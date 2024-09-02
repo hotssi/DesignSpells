@@ -1,0 +1,39 @@
+default_install_hook_types:
+  - pre-commit
+  - commit-msg
+  - pre-push
+
+default_stages:
+  - commit
+  - push
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-json
+    -   id: check-added-large-files
+    -   id: mixed-line-ending
+
+-   repo: https://github.com/standard/standard
+    rev: v17.1.0
+    hooks:
+    -   id: standard
+        name: standard --fix
+        language: node
+        files: "\\.(\
+            js|jsx\
+            |mjs|cjs\
+            )$"
+
+-   repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.29.0 # automatically updated by Commitizen
+    hooks:
+      - id: commitizen  # https://github.com/commitizen-tools/commitizen/blob/100936b86380c2e16989da67fa71102cc5ba401e/.pre-commit-hooks.yaml#L1
+      - id: commitizen-branch # https://github.com/commitizen-tools/commitizen/blob/100936b86380c2e16989da67fa71102cc5ba401e/.pre-commit-hooks.yaml#L14
+        stages:
+          - post-commit
+          - push
