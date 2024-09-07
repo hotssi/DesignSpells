@@ -94,7 +94,8 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "node index.js"
+    "start": "node index.js",
+    "genData": "node scripts/gen-font-data.js"
   },
   "keywords": [],
   "author": "",
