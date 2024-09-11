@@ -35,7 +35,6 @@ client.once('ready', () => {
 for (const file of eventFiles) {
   const event = require(path.join(eventsPath, file))
   client.on(event.name, (...args) => event.execute(...args))
-  client.on(event.name, (...args) => event.autocomplete?.(...args))
 }
 
 client.login(config.token)
