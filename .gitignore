@@ -2,3 +2,5 @@ node_modules
 coverage
 config.json
 data/font.json
+data
+assets/font
