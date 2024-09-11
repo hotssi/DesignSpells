@@ -8,7 +8,7 @@ function getDirectories (srcPath) {
 }
 
 function getFontFiles (srcPath) {
-  return fs.readdirSync(srcPath).filter(file => fs.statSync(path.join(srcPath, file)).isFile())
+  return fs.readdirSync(srcPath).filter(file => fs.statSync(path.join(srcPath, file)).isFile()).map(file => path.join(srcPath, file))
 }
 
 function getFontArr (srcPath) {
@@ -18,8 +18,9 @@ function getFontArr (srcPath) {
   fontFiles.forEach(fontFile => {
     const fontName = path.parse(fontFile).name
     const buffer = {}
-    buffer.name = fontName
-    buffer.path = fontFile
+    buffer.label = fontName
+    buffer.description = fontFile
+    buffer.value = fontName.toLowerCase()
     fontArr.push(buffer)
   })
 
