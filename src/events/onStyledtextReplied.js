@@ -18,7 +18,7 @@ module.exports = {
       const effect = 'shadow'
       // const userInput = interaction.options.getString('text_input')
       const imageCachePath = path.join(__dirname, '../../cache/output.png')
-      textEffect(fontPath, effect, textInput, imageCachePath)
+      textEffect(fontName, fontPath, effect, textInput, imageCachePath)
 
       // 저장된 이미지 파일을 전송
       const file = new AttachmentBuilder(imageCachePath)

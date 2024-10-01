@@ -1,7 +1,7 @@
 const { registerFont, createCanvas } = require('canvas')
 const fs = require('fs')
 
-async function textEffect (fontPath, effect, text, imageCachePath) {
+async function textEffect (fontName, fontPath, effect, text, imageCachePath) {
   // Define canvas dimensions
   const width = 360
   const height = 200
@@ -9,7 +9,7 @@ async function textEffect (fontPath, effect, text, imageCachePath) {
   const ctx = canvas.getContext('2d')
 
   // Register custom font
-  registerFont(fontPath, { family: 'MyCustomFont' })
+  registerFont(fontPath, { family: fontName })
 
   // Set background color (optional)
   ctx.fillStyle = '#ffffff'
@@ -27,7 +27,7 @@ async function textEffect (fontPath, effect, text, imageCachePath) {
     textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)'
   }
 
-  ctx.font = `${fontStyle} ${fontWeight} 48px MyCustomFont`
+  ctx.font = `${fontStyle} ${fontWeight} 48px ${fontName}`
   ctx.fillStyle = '#000000'
 
   if (textShadow) {
